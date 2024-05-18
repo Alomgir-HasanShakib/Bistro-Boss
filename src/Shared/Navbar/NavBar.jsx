@@ -7,7 +7,7 @@ const NavBar = () => {
         <li className="mr-5">Home</li>
       </NavLink>
       <NavLink to="/contact">
-        <li className="mr-5">CONTACT Us</li>
+        <li className="mr-5">CONTACT US</li>
       </NavLink>
       <NavLink to="/dashboard">
         <li className="mr-5">DASHBOARD</li>
@@ -21,7 +21,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 container mx-auto font-inter">
+    <div className="navbar bg-black bg-opacity-50 text-white font-inter fixed z-10 container">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,7 +47,7 @@ const NavBar = () => {
             {navLink}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl font-cinzel">daisyUI</a>
+        <a className="btn btn-ghost text-xl font-cinzel font-extrabold">BISTRO BOSS</a>
       </div>
       
       <div className="navbar-end">
