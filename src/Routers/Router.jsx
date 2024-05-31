@@ -7,6 +7,7 @@ import OurShop from "../Pages/Our Shop/OurShop";
 import Dashboard from "../Pages/DASHBOARD/Dashboard";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/shop",
-        element: <OurShop></OurShop>,
+        element: (
+          <PrivateRoute>
+            <OurShop></OurShop>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard",
