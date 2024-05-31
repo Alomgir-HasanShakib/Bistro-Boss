@@ -1,7 +1,11 @@
-
+import banner from '../../assets/menu/banner3.jpg'
 const OurMenu = () => {
   return (
-    <div>OurMenu</div>
+    <div>
+      <div>
+        <img src={banner} alt="" />
+      </div>
+    </div>
   )
 }
 

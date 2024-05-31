@@ -1,6 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Context/Authentication";
+import cartImg from '../../assets/icon/cart.png'
 
 const NavBar = () => {
+  const { user, loader, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut();
+  };
+
   const navLink = (
     <>
       <NavLink to="/">
@@ -14,9 +23,11 @@ const NavBar = () => {
       </NavLink>
       <NavLink to="/menu">
         <li className="mr-5">Our Menu</li>
+        
       </NavLink>
-      <NavLink to="/shop">
+      <NavLink to="/shop"  className='flex '>
         <li>Our Shop</li>
+        <img className="w-[40px]" src={cartImg} alt="" />
       </NavLink>
     </>
   );
@@ -47,14 +58,24 @@ const NavBar = () => {
             {navLink}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl font-cinzel font-extrabold">BISTRO BOSS</a>
+        <a className="btn btn-ghost text-xl font-cinzel font-extrabold">
+          BISTRO BOSS
+        </a>
       </div>
-      
+
       <div className="navbar-end">
-      <div className="mr-20 hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 ">{navLink}</ul>
-      </div>
-        <a className="btn">Log IN</a>
+        <div className="mr-20 hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 ">{navLink}</ul>
+        </div>
+        {loader ? (
+          <p>loading...</p>
+        ) : !user ? (
+          <Link to="/login" className="btn">
+            Log IN
+          </Link>
+        ) : (
+          <button onClick={handleLogOut} className="btn">Log Out</button>
+        )}
       </div>
     </div>
   );
