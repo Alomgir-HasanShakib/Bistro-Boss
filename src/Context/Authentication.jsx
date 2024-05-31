@@ -48,10 +48,11 @@ const Authentication = ({ children }) => {
 
   // update profile
 
-  const updateUserProfile = (name, photourl) => {
+  const updateUserProfile = (name,email, photourl) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photourl,
+      email: email
     });
   };
 

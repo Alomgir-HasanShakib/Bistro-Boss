@@ -15,7 +15,7 @@ const Registration = () => {
     const userName = form.userName.value;
 
     createUser(email, pass).then((res) => {
-      updateUserProfile(userName).then((res) => {
+      updateUserProfile(userName,email).then((res) => {
         Swal.fire({
           position: "top-end",
           icon: "success",

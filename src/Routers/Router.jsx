@@ -4,10 +4,11 @@ import Home from "../Pages/Home/Home/Home";
 import ContactUs from "../Pages/CONTACT/ContactUs";
 import OurMenu from "../Pages/Menu/OurMenu";
 import OurShop from "../Pages/Our Shop/OurShop";
-import Dashboard from "../Pages/DASHBOARD/Dashboard";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import Cart from "../Pages/Dashboard/Cart";
 
 const router = createBrowserRouter([
   {
@@ -30,10 +31,7 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <OurShop></OurShop>,
       },
-      {
-        path: "/dashboard",
-        element: <Dashboard></Dashboard>,
-      },
+      
     ],
   },
   {
@@ -44,6 +42,19 @@ const router = createBrowserRouter([
     path: "/registration",
     element: <Registration></Registration>,
   },
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'cart',
+        element: <Cart></Cart>
+      },
+      {
+        
+      }
+    ]
+  }
 ]);
 
 export default router;
