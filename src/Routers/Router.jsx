@@ -9,6 +9,11 @@ import Registration from "../Pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart";
+import Reservation from "../Pages/Dashboard/Reservation";
+import Review from "../Pages/Dashboard/Review";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
+import Mybooking from "../Pages/Dashboard/Mybooking";
+import UserHome from "../Pages/Dashboard/UserHome";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +36,6 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <OurShop></OurShop>,
       },
-      
     ],
   },
   {
@@ -43,18 +47,35 @@ const router = createBrowserRouter([
     element: <Registration></Registration>,
   },
   {
-    path: 'dashboard',
+    path: "dashboard",
     element: <Dashboard></Dashboard>,
     children: [
       {
-        path: 'cart',
-        element: <Cart></Cart>
+        path: "cart",
+        element: <Cart></Cart>,
       },
       {
-        
-      }
-    ]
-  }
+        path: "reservation",
+        element: <Reservation></Reservation>,
+      },
+      {
+        path: "review",
+        element: <Review></Review>,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+      {
+        path: "myBooking",
+        element: <Mybooking></Mybooking>,
+      },
+      {
+        path: "userHome",
+        element: <UserHome></UserHome>,
+      },
+    ],
+  },
 ]);
 
 export default router;

@@ -12,13 +12,13 @@ const Card = ({ menu }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
-  const [, refetch] = useCart()
+  const [cart, refetch] = useCart()
 
   const handleAddtoCart = () => {
     if (user && user.email) {
       const cartItem = {
         menuId: _id,
-        user: user.email,
+        email: user.email,
         name,
         image,
         price,

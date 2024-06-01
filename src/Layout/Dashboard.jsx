@@ -18,17 +18,17 @@ const Dashboard = () => {
       <div className="w-64 h-screen bg-[#D1A054]">
         <ul className="menu p-4 space-y-4">
           <li>
-            <NavLink to="dashboard">
+            <NavLink to="/dashboard/userHome">
               <FaHome></FaHome> User Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="dashboard">
+            <NavLink to="/dashboard/reservation">
               <FaCalendar></FaCalendar> Reservation
             </NavLink>
           </li>
           <li>
-            <NavLink to="dashboard">
+            <NavLink to="/dashboard/paymentHistory">
               <FaWallet></FaWallet> Peyment History
             </NavLink>
           </li>
@@ -38,12 +38,12 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="dashboard">
+            <NavLink to="/dashboard/review">
               <MdReviews></MdReviews> Add Review
             </NavLink>
           </li>
           <li>
-            <NavLink to="dashboard">
+            <NavLink to="/dashboard/myBooking">
               <FaBook></FaBook>My Booking
             </NavLink>
           </li>
@@ -70,7 +70,7 @@ const Dashboard = () => {
           </li>
         </ul>
       </div>
-      <div>
+      <div className="flex-1 w-full">
         <Outlet></Outlet>
       </div>
     </div>

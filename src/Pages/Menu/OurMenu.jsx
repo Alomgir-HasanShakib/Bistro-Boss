@@ -12,8 +12,11 @@ const OurMenu = () => {
   
   return (
     <div>
-      <div>
+      <div className="relative">
         <img src={banner} alt="" />
+        <div className="absolute top-[50%] left-[50%] bg-gray-700 opacity-75 p-20">
+        <h2 className=" text-6xl font-bold text-white">Our Menu</h2>
+        </div>
       </div>
       <div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-16">

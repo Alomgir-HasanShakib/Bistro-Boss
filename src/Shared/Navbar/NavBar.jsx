@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/Authentication";
-import cartImg from "../../assets/icon/cart.png";
 import { FaCartShopping } from "react-icons/fa6";
 import useCart from "../../Hooks/useCart";
 
@@ -12,7 +11,6 @@ const NavBar = () => {
   const handleLogOut = () => {
     logOut();
   };
-  console.log(cart,"===============", cart.length);
 
   const navLink = (
     <>
