@@ -1,4 +1,4 @@
-import { FaHamburger, FaHome } from "react-icons/fa";
+import { FaHamburger, FaHome, FaList, FaUser, FaUsers } from "react-icons/fa";
 import {
   FaAddressCard,
   FaBook,
@@ -9,15 +9,46 @@ import {
   FaShopSlash,
   FaWallet,
 } from "react-icons/fa6";
+import { GiForkKnifeSpoon } from "react-icons/gi";
 import { MdReviews } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+  const isAdmin  = true
   return (
-    <div className="flex gap-10 font-cinzel bg-[#F6F6F6]">
-      <div className="w-64 h-screen bg-[#D1A054]">
-        <ul className="menu p-4 space-y-4">
-          <li>
+    <div className="flex gap-10 font-cinzel bg-[#F6F6F6] mb-10">
+      <div className="w-64 min-h-screen bg-[#D1A054]">
+        <ul className="menu p-4 space-y-4 font-medium text-black">
+          {
+            isAdmin ? <>
+            <li>
+            <NavLink to="/dashboard/adminHome">
+              <FaHome></FaHome> Admin Home
+            </NavLink>
+          </li>
+            <li>
+            <NavLink to="/dashboard/additems">
+            <GiForkKnifeSpoon /> Add Items
+            </NavLink>
+          </li>
+            <li>
+            <NavLink to="/dashboard/manageitems">
+              <FaList></FaList> Manage Items
+            </NavLink>
+          </li>
+            <li>
+            <NavLink to="/dashboard/managebook">
+              <FaBook></FaBook> Manage Bookings
+            </NavLink>
+          </li>
+            <li>
+            <NavLink to="/dashboard/alluser">
+              <FaUsers></FaUsers>All User
+            </NavLink>
+          </li>
+            </>:
+            <>
+            <li>
             <NavLink to="/dashboard/userHome">
               <FaHome></FaHome> User Home
             </NavLink>
@@ -47,6 +78,8 @@ const Dashboard = () => {
               <FaBook></FaBook>My Booking
             </NavLink>
           </li>
+            </>
+          }
           <hr />
           <li>
             <NavLink to="/">

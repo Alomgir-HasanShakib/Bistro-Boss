@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Authentication";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Component/Social Login/SocialLogin";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
@@ -36,7 +37,7 @@ const Login = () => {
             a id nisi.
           </p>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 px-4">
           <form className="card-body" onSubmit={handleLogin}>
             <div className="form-control">
               <label className="label">
@@ -73,6 +74,8 @@ const Login = () => {
           </form>
           <p>don't have an account? </p>
           <Link to="/registration">register here</Link>
+          <div className="divider"></div>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>

@@ -2,10 +2,13 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../Context/Authentication";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import SocialLogin from "../../Component/Social Login/SocialLogin";
 
 const Registration = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -13,17 +16,25 @@ const Registration = () => {
     const email = form.email.value;
     const pass = form.pass.value;
     const userName = form.userName.value;
+    const userInfo = {
+      name: userName,
+      email: email,
+    };
 
     createUser(email, pass).then((res) => {
-      updateUserProfile(userName,email).then((res) => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "User Register Success",
-          showConfirmButton: false,
-          timer: 1500,
+      updateUserProfile(userName, email).then((res) => {
+        axiosPublic.post("/users", userInfo).then((res) => {
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User Register Success",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate("/");
+          }
         });
-        navigate("/");
       });
     });
   };
@@ -38,7 +49,7 @@ const Registration = () => {
             a id nisi.
           </p>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 px-4">
           <form className="card-body" onSubmit={handleRegistration}>
             <div className="form-control">
               <label className="label">
@@ -85,7 +96,10 @@ const Registration = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
-          <Link to='/login'>Login here</Link>
+          <Link to="/login">Login here</Link>
+          <div className="divider">
+          </div>
+          <SocialLogin ></SocialLogin>
         </div>
       </div>
     </div>
