@@ -14,7 +14,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="flex gap-10 font-cinzel">
+    <div className="flex gap-10 font-cinzel bg-[#F6F6F6]">
       <div className="w-64 h-screen bg-[#D1A054]">
         <ul className="menu p-4 space-y-4">
           <li>
@@ -70,7 +70,7 @@ const Dashboard = () => {
           </li>
         </ul>
       </div>
-      <div className="flex-1 w-full">
+      <div className="flex-1 w-full ">
         <Outlet></Outlet>
       </div>
     </div>
