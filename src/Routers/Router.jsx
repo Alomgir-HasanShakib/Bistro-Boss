@@ -19,6 +19,7 @@ import AddItems from "../Pages/Dashboard/ForAdmin/AddItems";
 import ManageItems from "../Pages/Dashboard/ForAdmin/ManageItems";
 import ManageBookings from "../Pages/Dashboard/ForAdmin/ManageBookings";
 import AllUsers from "../Pages/Dashboard/ForAdmin/AllUsers";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: <Dashboard></Dashboard>,
     children: [
-      // normal user route 
+      // =================================================================normal user route ==============================
       {
         path: "cart",
         element: <Cart></Cart>,
@@ -80,26 +81,49 @@ const router = createBrowserRouter([
         path: "userHome",
         element: <UserHome></UserHome>,
       },
-      // admin route here 
+      // ===============================================admin route here ==================================
       {
-        path: 'adminHome',
-        element: <AdminHome></AdminHome>
-      },{
-        path: 'additems',
-        element: <AddItems></AddItems>
+        path: "adminHome",
+        element: (
+          <AdminRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
       },
       {
-        path: 'manageitems',
-        element: <ManageItems></ManageItems>
+        path: "additems",
+        element: (
+          <AdminRoute>
+            <AddItems></AddItems>
+          </AdminRoute>
+        ),
       },
       {
-        path: 'managebook',
-        element: <ManageBookings></ManageBookings>
+        path: "manageitems",
+        element: (
+          <AdminRoute>
+            {" "}
+            <ManageItems></ManageItems>
+          </AdminRoute>
+        ),
       },
       {
-        path: 'alluser',
-        element: <AllUsers></AllUsers>
-      }
+        path: "managebook",
+        element: (
+          <AdminRoute>
+            {" "}
+            <ManageBookings></ManageBookings>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "alluser",
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
+      },
     ],
   },
 ]);
