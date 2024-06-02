@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import app from "../Firebase/Firebase.config";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 // social media login
@@ -18,6 +19,7 @@ const googleprovider = new GoogleAuthProvider();
 const Authentication = ({ children }) => {
   const auth = getAuth(app);
   const [loader, setLoader] = useState(true);
+  const axiosPublic = useAxiosPublic()
   // manage user
   const [user, setUser] = useState(null);
 
@@ -60,6 +62,22 @@ const Authentication = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoader(false);
+      console.log(user);
+      const userInfo = {email: user?.email
+      }
+      if(user){
+        // save jwt token 
+        axiosPublic.post('/jwt', userInfo)
+        .then(res=>{
+          if(res.data.token){
+            localStorage.setItem('access-token', res.data.token)
+          }
+        })
+      }else{
+        // remove jwt token 
+        localStorage.removeItem('access-token')
+      }
+      
     });
 
     return () => unSubscribe();
