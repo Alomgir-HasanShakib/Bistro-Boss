@@ -12,9 +12,10 @@ import {
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { MdReviews } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
-  const isAdmin  = true
+  const [isAdmin]  = useAdmin()
   return (
     <div className="flex gap-10 font-cinzel bg-[#F6F6F6] mb-10">
       <div className="w-64 min-h-screen bg-[#D1A054]">
