@@ -34,7 +34,8 @@ const Table = ({ item, idx }) => {
   };
   return (
     <tr>
-      <th>{idx}</th>
+      <th>{idx +
+      1}</th>
       <td>
         <div className="flex items-center gap-3">
           <div className="avatar">
