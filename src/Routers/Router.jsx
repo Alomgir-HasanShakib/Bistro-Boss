@@ -20,6 +20,7 @@ import ManageItems from "../Pages/Dashboard/ForAdmin/ManageItems";
 import ManageBookings from "../Pages/Dashboard/ForAdmin/ManageBookings";
 import AllUsers from "../Pages/Dashboard/ForAdmin/AllUsers";
 import AdminRoute from "./AdminRoute";
+import UpdateMenu from "../Pages/Dashboard/ForAdmin/UpdateMenu";
 
 const router = createBrowserRouter([
   {
@@ -106,6 +107,17 @@ const router = createBrowserRouter([
             <ManageItems></ManageItems>
           </AdminRoute>
         ),
+      },
+      {
+        path: "updateMenu/:id",
+        element: (
+          <AdminRoute>
+            {" "}
+            <UpdateMenu></UpdateMenu>{" "}
+          </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/menu/${params.id}`),
       },
       {
         path: "managebook",
