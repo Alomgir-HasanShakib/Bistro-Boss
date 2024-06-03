@@ -17,7 +17,7 @@ const UpdateMenu = () => {
     const menuItem = {
       name: data.name,
       category: data.category,
-      price: data.price,
+      price: parseFloat(data.price),
       recipe: data.recipe,
     };
     const updateRes = await axiosSecure.put(`/menu/${menuItems._id}`, menuItem);

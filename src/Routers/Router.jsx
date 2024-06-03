@@ -21,6 +21,7 @@ import ManageBookings from "../Pages/Dashboard/ForAdmin/ManageBookings";
 import AllUsers from "../Pages/Dashboard/ForAdmin/AllUsers";
 import AdminRoute from "./AdminRoute";
 import UpdateMenu from "../Pages/Dashboard/ForAdmin/UpdateMenu";
+import Payment from "../Pages/Dashboard/Payment";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,14 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart></Cart>,
+      },
+      {
+        path: "payment",
+        element: (
+          <PrivateRoute>
+            <Payment></Payment>{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "reservation",

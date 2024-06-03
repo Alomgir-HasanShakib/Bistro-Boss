@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Table from "../../Component/CartTable/Table";
 import SectionTitle from "../../Component/Section Title/SectionTitle";
 import useCart from "../../Hooks/useCart";
@@ -16,7 +17,13 @@ const Cart = () => {
           <h2 className="text-black text-3xl font-bold">
             total price: ${totalPrice}
           </h2>
-          <button className="btn  bg-[#D1A054] text-white px-8">Pay</button>
+          {cart.length ? (
+            <Link to="/dashboard/payment">
+              <button className="btn  bg-[#D1A054] text-white px-8">Pay</button>
+            </Link>
+          ) : (
+            <button className="btn disabled text-white px-8">Pay</button>
+          )}
         </div>
         <table className="table ">
           {/* head */}
